@@ -40,7 +40,9 @@ exports.Request = function (ARequest, ACallback)
 {
     ARequest = ARequest.substr(1); //Remove leading slash.
 
-    let Params = ARequest.split('/');
+    let Params = ARequest.split('/').filter(function (el){
+        return el !== '';
+    });
     let Command = Params[0];
     Params = Params.slice(1);
 
